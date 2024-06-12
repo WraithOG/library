@@ -13,9 +13,21 @@ body {
     grid-template-areas: 
     "header header header"
     "book-container book-container book-container"
-    ". . ."
+    "footer footer footer"
     ;
 }
+
+.footer {
+    grid-area: footer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F9F9F9;
+    font-size: 24px;
+    font-weight: 500;
+    font-family: "Farfetch Basis","Helvetica Neue",Arial,sans-serif;
+}
+
 
 .header {
     grid-area: header;
@@ -30,16 +42,35 @@ body {
     font-weight: 500;
 }
 
+#addBook {
+	box-shadow: 0px 10px 14px -7px #276873;
+	background:linear-gradient(to bottom, #599bb3 5%, #408c99 100%);
+	background-color:#599bb3;
+	border-radius:8px;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:"Farfetch Basis","Helvetica Neue",Arial,sans-serif;
+	font-size:20px;
+	font-weight:bold;
+	padding:13px 32px;
+}
+#addBook:hover {
+	background:linear-gradient(to bottom, #408c99 5%, #599bb3 100%);
+	background-color:#408c99;
+}
+
 .header-text {
     grid-area: header-text;
     display: flex;
     justify-content: center;
+    font-family: "Farfetch Basis","Helvetica Neue",Arial,sans-serif;
 }
 
 .new-book {
     grid-area: new-book;
     display: flex;
     justify-content: center;
+    
 }
 
 .book-container {
@@ -55,6 +86,7 @@ body {
 }
 
 .book-data {
+    border: 5px solid #927e7e;
     column-gap: 20px;
     row-gap: 20px;
     background-color: #BCBAB8;

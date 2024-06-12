@@ -1,4 +1,4 @@
-myLibrary = ["The Hobbit by J.R.R Tolkien, 295 pages, read"];
+myLibrary = ["The Hobbit by J.R.R Tolkien, 295 pages"];
 
 
 
