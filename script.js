@@ -2,14 +2,14 @@ myLibrary = ["The Hobbit by J.R.R Tolkien, 295 pages, read"];
 
 
 
-function Book(title, author, pages, read) {
+function Book(title, author, pages) {
     this.title = title;
     this.author = author;
     this.pages = pages;
-    this.read = read;
-    this.info = this.title + " by " + this.author + ", " + this.pages + " pages, " + this.read;
+    this.info = this.title + " by " + this.author + ", " + this.pages + " pages";
     return this.info;
 }
+
 
 
 function addBookToLibrary(){
@@ -75,18 +75,6 @@ function addBookToLibrary(){
             bookForm.appendChild(pages);
             bookForm.append(br2);
 
-            var read = document.createElement("input");
-            var readLabel = document.createElement("label");
-            var br3 = document.createElement("br");
-            read.className = "input"
-            read.id = "read";
-            read.type = "checkbox";
-            readLabel.htmlFor = "read";
-            readLabel.innerHTML = "Have you read this book?";
-            bookForm.appendChild(readLabel);
-            bookForm.appendChild(read);
-            bookForm.append(br3);
-
             var submit = document.createElement("input");
             submit.className = "submit"
             submit.id = "submit";
@@ -99,9 +87,8 @@ function addBookToLibrary(){
                 let bookTitle = document.getElementById("title").value;
                 let bookAuthor = document.getElementById("author").value;
                 let bookPages = document.getElementById("pages").value;
-                let bookRead = document.getElementById("read").value;
                 
-                this.book = Book(bookTitle, bookAuthor, bookPages, bookRead);
+                this.book = Book(bookTitle, bookAuthor, bookPages);
                 myLibrary.push(this.book);
                 displayLibrary(myLibrary);
 
@@ -110,13 +97,11 @@ function addBookToLibrary(){
         
     });
 
-    
-    
 } 
 
 
 
-function displayLibrary(libraryArr) {
+function displayLibrary(libraryArr, readStatus) {
     for (let i = (libraryArr.length - 1); i < libraryArr.length; i++) {
         //Creates container div with an id of the book index for the delete function
         var div = document.createElement("div");
@@ -137,8 +122,12 @@ function displayLibrary(libraryArr) {
 
         var read_button = document.createElement("button");
         read_button.className = "read";
+        
         read_button.innerHTML = "Read";
         read_button.style.backgroundColor = "#00c893";
+
+        
+        
         read_button.addEventListener("click", function () {if (read_button.innerHTML === "Read"){
             read_button.style.backgroundColor = "#c80036"; read_button.innerHTML = "Not Read";
         }else {
