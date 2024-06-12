@@ -78,7 +78,15 @@ body {
     ;
 }
 
-.delete {
+#submit {
+    display: flex;
+    max-width: 50%;
+    padding: 9px;
+    margin-top: 5px;
+    justify-self: center;
+}
+
+.delete, .submit {
     grid-area: delete;
     background-color: #222;
     border-radius: 4px;
@@ -143,6 +151,7 @@ body {
 .form-container {
     display: flex;
     flex: 1;
+    margin-left: 30px;
     justify-content: start;
     background-color: #BCBAB8;
     border-radius: 25px;
@@ -155,12 +164,18 @@ body {
     align-items: center;
 }
 
+.btn {
+    flex: 1;
+    align-self: flex-start;
+    margin: 0;
+}
+
 #pages {
     max-width: 15%;
 }
 
 .input {
-    margin-top: 10px;
+    margin-top: 15px;
 	font-size: 18px;
 	padding: 4px;
 	outline: none;

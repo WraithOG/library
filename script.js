@@ -13,77 +13,106 @@ function Book(title, author, pages, read) {
 
 
 function addBookToLibrary(){
-
+    var closed = true;
     var newBook = document.getElementById("addBook");
     newBook.addEventListener("click", function(){
-        var br = document.createElement("br");
+        if (closed === true){
+            closed = false;
+            var br = document.createElement("br");
+        
 
-        var parent = document.getElementById("book-container"); 
-        var formDiv = document.createElement("div");
-        formDiv.className = "form-container";
-        parent.appendChild(formDiv);
-        var bookForm = document.createElement("form");
-        formDiv.appendChild(bookForm);
+            var parent = document.getElementById("book-container"); 
+            var formDiv = document.createElement("div");
+            formDiv.className = "form-container";
+            parent.appendChild(formDiv);
+            var bookForm = document.createElement("form");
+            formDiv.appendChild(bookForm);
 
-        var title = document.createElement("input");
-        var titleLabel = document.createElement("label");
-        linebreak = document.createElement("br");
-        title.className = "input";
-        title.id = "title";
-        title.placeholder = "Title";
-        title.type = "text";
-        titleLabel.htmlFor = "title";
-        titleLabel.innerHTML = "Title: ";
-        bookForm.appendChild(titleLabel);
-        bookForm.appendChild(title);
-        bookForm.append(linebreak);
+            var close = document.createElement("button");
+            close.className = "btn";
+            var i = document.createElement("i");
+            i.className = "fa fa-close";
+            close.appendChild(i);
+            formDiv.appendChild(close);
 
-        var author = document.createElement("input");
-        var authorLabel = document.createElement("label");
-        author.className = "input"
-        author.id = "author";
-        author.placeholder = "Author"
-        author.type = "text";
-        authorLabel.htmlFor = "author";
-        authorLabel.innerHTML = "Author: ";
-        bookForm.appendChild(authorLabel);
-        bookForm.appendChild(author);
-        bookForm.append(br);
+            close.addEventListener("click", function (){formDiv.remove(); closed = true; return closed});
 
-        var pages = document.createElement("input");
-        var pagesLabel = document.createElement("label");
-        var br2 = document.createElement("br");
-        pages.className = "input num"
-        pages.id = "pages";
-        pages.type = "number";
-        pagesLabel.htmlFor = "pages";
-        pagesLabel.innerHTML = "Number of Pages: ";
-        bookForm.appendChild(pagesLabel);
-        bookForm.appendChild(pages);
-        bookForm.append(br2);
 
-        var read = document.createElement("input");
-        var readLabel = document.createElement("label");
-        var br3 = document.createElement("br");
-        read.className = "input"
-        read.id = "read";
-        read.type = "checkbox";
-        readLabel.htmlFor = "read";
-        readLabel.innerHTML = "Have you read this book?";
-        bookForm.appendChild(readLabel);
-        bookForm.appendChild(read);
-        bookForm.append(br3);
+            var title = document.createElement("input");
+            var titleLabel = document.createElement("label");
+            linebreak = document.createElement("br");
+            title.className = "input";
+            title.id = "title";
+            title.placeholder = "Title";
+            title.type = "text";
+            titleLabel.htmlFor = "title";
+            titleLabel.innerHTML = "Title: ";
+            bookForm.appendChild(titleLabel);
+            bookForm.appendChild(title);
+            bookForm.append(linebreak);
 
+            var author = document.createElement("input");
+            var authorLabel = document.createElement("label");
+            author.className = "input"
+            author.id = "author";
+            author.placeholder = "Author"
+            author.type = "text";
+            authorLabel.htmlFor = "author";
+            authorLabel.innerHTML = "Author: ";
+            bookForm.appendChild(authorLabel);
+            bookForm.appendChild(author);
+            bookForm.append(br);
+
+            var pages = document.createElement("input");
+            var pagesLabel = document.createElement("label");
+            var br2 = document.createElement("br");
+            pages.className = "input num"
+            pages.id = "pages";
+            pages.type = "number";
+            pagesLabel.htmlFor = "pages";
+            pagesLabel.innerHTML = "Number of Pages: ";
+            bookForm.appendChild(pagesLabel);
+            bookForm.appendChild(pages);
+            bookForm.append(br2);
+
+            var read = document.createElement("input");
+            var readLabel = document.createElement("label");
+            var br3 = document.createElement("br");
+            read.className = "input"
+            read.id = "read";
+            read.type = "checkbox";
+            readLabel.htmlFor = "read";
+            readLabel.innerHTML = "Have you read this book?";
+            bookForm.appendChild(readLabel);
+            bookForm.appendChild(read);
+            bookForm.append(br3);
+
+            var submit = document.createElement("input");
+            submit.className = "submit"
+            submit.id = "submit";
+            submit.type = "submit";
+            submit.value = "Add Book";
+            bookForm.appendChild(submit);
+
+            submit.addEventListener("click", function () {
+                event.preventDefault();
+                let bookTitle = document.getElementById("title").value;
+                let bookAuthor = document.getElementById("author").value;
+                let bookPages = document.getElementById("pages").value;
+                let bookRead = document.getElementById("read").value;
+                
+                this.book = Book(bookTitle, bookAuthor, bookPages, bookRead);
+                myLibrary.push(this.book);
+                displayLibrary(myLibrary);
+
+            });
+        }
         
     });
-    /*let bookTitle = prompt("Please enter the title: ");
-    let bookAuthor = prompt("Author :");
-    let bookPages = prompt("Number of Pages :");
-    let bookRead = prompt("Did you read this book? ");*/
-    this.book = Book(bookTitle, bookAuthor, bookPages, bookRead);
-    myLibrary.push(this.book);
-    displayLibrary(myLibrary);
-}
+
+    
+    
+} 
 
 
 
