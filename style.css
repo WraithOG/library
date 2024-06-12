@@ -1,0 +1,194 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+
+.container {
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 4fr 1fr;
+    grid-template-areas: 
+    "header header header"
+    "book-container book-container book-container"
+    ". . ."
+    ;
+}
+
+.header {
+    grid-area: header;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: 
+    ". header-text new-book"
+    ;
+    padding: 75px;
+    background-color: #F9F9F9;
+    font-size: 32px;
+    font-weight: 500;
+}
+
+.header-text {
+    grid-area: header-text;
+    display: flex;
+    justify-content: center;
+}
+
+.new-book {
+    grid-area: new-book;
+    display: flex;
+    justify-content: center;
+}
+
+.book-container {
+    grid-area: book-container;
+    display: flex;
+    justify-content: center;
+    background-color: #F0EBE3;
+}
+
+#books {
+    display: flex;
+    gap: 50px;
+}
+
+.book-data {
+    column-gap: 20px;
+    row-gap: 20px;
+    background-color: #BCBAB8;
+    border-radius: 25px;
+    box-shadow: -1px 1px 25px -8px rgba(0,0,0,0.94);
+    padding: 20px;
+    flex: 1;
+    justify-content: center;
+    margin-top: 100px;
+    min-width: 200px;
+    max-width: 300px;
+    max-height: 200px;
+    text-align: center;
+    word-wrap: normal;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+    "book-text book-text"
+    "delete read"
+    ;
+}
+
+.delete {
+    grid-area: delete;
+    background-color: #222;
+    border-radius: 4px;
+    border-style: none;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    font-family: "Farfetch Basis","Helvetica Neue",Arial,sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.5;
+    margin: 0;
+    max-width: none;
+    min-height: 44px;
+    min-width: 10px;
+    outline: none;
+    overflow: hidden;
+    padding: 9px 20px 8px;
+    position: relative;
+    text-align: center;
+    text-transform: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: 100%;
+}
+
+.book-text {
+    font-family: "Farfetch Basis","Helvetica Neue",Arial,sans-serif;
+    font-weight: 700;
+    line-height: 1.5;
+    grid-area: book-text;
+}
+
+
+.read {
+    grid-area: read;
+    border-radius: 4px;
+    border-style: none;
+    box-sizing: border-box;
+    cursor: pointer;
+    font-family: "Farfetch Basis","Helvetica Neue",Arial,sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.5;
+    margin: 0;
+    max-width: none;
+    min-height: 44px;
+    min-width: 10px;
+    outline: none;
+    overflow: hidden;
+    padding: 9px 20px 8px;
+    position: relative;
+    text-align: center;
+    text-transform: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: 100%;
+}
+
+.form-container {
+    display: flex;
+    flex: 1;
+    justify-content: start;
+    background-color: #BCBAB8;
+    border-radius: 25px;
+    box-shadow: -1px 1px 25px -8px rgba(0,0,0,0.94);
+    padding: 20px;
+    margin-top: 100px;
+    min-width: 200px;
+    max-width: 300px;
+    max-height: 200px;
+    align-items: center;
+}
+
+#pages {
+    max-width: 15%;
+}
+
+.input {
+    margin-top: 10px;
+	font-size: 18px;
+	padding: 4px;
+	outline: none;
+	background: #FFFFFF;
+	color: #000000;
+	border: 0px solid #C4D1EB;
+	border-radius: 2px;
+	box-shadow: 1px 1px 2px 1px #E2E2E2;
+	transition: .3s ease;
+    max-width: 50%;
+}
+
+.input:focus {
+	background: #F2F2F2;
+	border: 1px solid #5A7EC7;
+	border-radius: 10px;
+}
+
+.input::placeholder {
+	color: #DDDDDD;
+}
+
+
+#title {
+    grid-area: title;
+}
+
+#author {
+    grid-area: author;
+}
+
